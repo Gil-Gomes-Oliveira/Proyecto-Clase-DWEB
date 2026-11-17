@@ -5,7 +5,6 @@ export default function JsBasico() {
   return (
     <>
       <h1>JS Básico</h1>
-      <p className="introduccion">Paso 2 · Funciones Javascript.</p>
       <p>Explora los ejemplos y completa los TODO de <code>src/utils/ejercicios.js</code>. Guarda y vuelve a pulsar «Probar mi función».</p>
       <section aria-labelledby="ejemplos-js">
         <h2 id="ejemplos-js">1. Ejemplos resueltos</h2>
