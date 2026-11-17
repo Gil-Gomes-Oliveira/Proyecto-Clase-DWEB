@@ -1,6 +1,6 @@
-/* Estilos globales: fuente del sistema y colores de toda la página. */
+
 :root {
-  /* Compartimos las alturas para reservar el espacio de las barras fijas. */
+  
   --altura-cabecera: 76px;
   --altura-pie: 72px;
   font-family: system-ui, sans-serif;
@@ -9,23 +9,23 @@
   line-height: 1.7;
 }
 
-/* El ancho de cada elemento incluye su relleno y sus bordes. */
+
 * { box-sizing: border-box; }
 
-/* Quitamos el margen que el navegador añade al documento. */
+
 body { margin: 0; }
 
-/* Limitamos el ancho de lectura y mantenemos espacio en pantallas pequeñas. */
+
 .festival {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  /* position: fixed saca las barras del flujo; este relleno evita solapamientos. */
+  
   padding: calc(var(--altura-cabecera) + 24px) 24px calc(var(--altura-pie) + 24px);
 }
 
-/* Flex coloca el logo y el nombre en una fila, alineados a la izquierda. */
+
 .barra-festival {
-  /* Se mantiene visible arriba y abarca todo el ancho de la ventana. */
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +40,7 @@ body { margin: 0; }
   color: #fff;
 }
 
-/* El símbolo musical funciona como un logo sencillo sin archivos externos. */
+
 .logo-festival {
   display: grid;
   place-items: center;
@@ -56,23 +56,23 @@ body { margin: 0; }
 h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; margin: 16px 0; }
 .introduccion { font-size: 1.15rem; }
 
-/* Los espacios y títulos separan las explicaciones en bloques legibles. */
+
 section { margin-top: 32px; }
 h2 { font-size: 1.35rem; line-height: 1.4; }
 li + li { margin-top: 10px; }
 
-/* Destacamos los nombres de archivos y las etiquetas mencionadas en el texto. */
+
 code { background: #e7e9de; padding: 2px 5px; border-radius: 4px; overflow-wrap: anywhere; }
 
-/* El ejercicio se diferencia con un fondo suave y un borde lateral. */
+
 .practica { background: #e4ecdf; border-left: 4px solid #287154; padding: 8px 20px; }
 
-/* El enlace conserva el subrayado y un foco visible para navegar con teclado. */
+
 a { color: #215b45; text-underline-offset: 3px; }
 a:focus-visible { outline: 3px solid #215b45; outline-offset: 4px; }
-/* Centramos el pie y reducimos su tipografía respecto al contenido principal. */
+
 footer {
-  /* Se mantiene visible abajo incluso cuando desplazamos el contenido. */
+  
   position: fixed;
   bottom: 0;
   left: 0;
@@ -88,5 +88,45 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Eliminamos el margen del párrafo para centrarlo dentro de la altura del pie. */
+
 footer p { margin: 0; }
+
+
+.barra-festival nav { display: flex; gap: 8px; margin-left: auto; }
+.barra-festival nav a { color: #fff; padding: 6px 10px; border-radius: 4px; }
+.barra-festival nav a.activo { background: #e4ecdf; color: #192c27; font-weight: 700; }
+.barra-festival nav a:focus-visible { outline-color: #fff; }
+
+
+.rejilla-js { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; }
+.tarjeta-js { min-width: 0; padding: 24px; border: 1px solid #b5c2b4; border-radius: 12px; background: #fff; }
+.tarjeta-js h3 { margin: 8px 0; font-size: 1.2rem; }
+.tipo-tarjeta { margin: 0; color: #286044; font-size: 0.85rem; font-weight: 700; }
+
+
+.controles-js, .tarjeta-js label { display: grid; gap: 8px; }
+.controles-js { gap: 16px; margin: 20px 0; }
+.tarjeta-js input, .tarjeta-js select, .tarjeta-js button {
+  width: 100%; min-width: 0; font: inherit; border-radius: 6px; padding: 8px 12px;
+  border: 1px solid #82958a;
+}
+.tarjeta-js button { background: #215b45; color: #fff; cursor: pointer; }
+.tarjeta-js button:hover { background: #183f31; }
+.tarjeta-js :is(input, select, button, summary):focus-visible, .datos-js summary:focus-visible {
+  outline: 3px solid #287154; outline-offset: 3px;
+}
+
+
+.resultado-js { padding: 12px; background: #edf3e9; border-radius: 6px; margin-bottom: 16px; }
+.resultado-js p { margin: 0; }
+.tarjeta-js pre, .datos-js pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.85rem; }
+.tarjeta-js pre code, .datos-js pre code { padding: 0; background: transparent; }
+summary { cursor: pointer; }
+.datos-js { padding: 16px; border: 1px solid #b5c2b4; border-radius: 8px; }
+
+
+@media (max-width: 540px) {
+  :root { --altura-cabecera: 132px; }
+  .barra-festival { flex-wrap: wrap; gap: 8px 12px; }
+  .barra-festival nav { width: 100%; margin-left: 0; }
+}
