@@ -1,0 +1,9 @@
+# Dependencias que npm puede volver a instalar.
+node_modules/
+# Archivos generados al compilar la aplicación.
+dist/
+# Configuración local y registros de errores.
+.env.local
+*.log
+README.md
+.idea/

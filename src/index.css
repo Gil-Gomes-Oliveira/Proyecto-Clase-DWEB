@@ -1,0 +1,92 @@
+/* Estilos globales: fuente del sistema y colores de toda la página. */
+:root {
+  /* Compartimos las alturas para reservar el espacio de las barras fijas. */
+  --altura-cabecera: 76px;
+  --altura-pie: 72px;
+  font-family: system-ui, sans-serif;
+  color: #192c27;
+  background-color: #f5f3eb;
+  line-height: 1.7;
+}
+
+/* El ancho de cada elemento incluye su relleno y sus bordes. */
+* { box-sizing: border-box; }
+
+/* Quitamos el margen que el navegador añade al documento. */
+body { margin: 0; }
+
+/* Limitamos el ancho de lectura y mantenemos espacio en pantallas pequeñas. */
+.festival {
+  max-width: 800px;
+  margin: 0 auto;
+  /* position: fixed saca las barras del flujo; este relleno evita solapamientos. */
+  padding: calc(var(--altura-cabecera) + 24px) 24px calc(var(--altura-pie) + 24px);
+}
+
+/* Flex coloca el logo y el nombre en una fila, alineados a la izquierda. */
+.barra-festival {
+  /* Se mantiene visible arriba y abarca todo el ancho de la ventana. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--altura-cabecera);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: #215b45;
+  color: #fff;
+}
+
+/* El símbolo musical funciona como un logo sencillo sin archivos externos. */
+.logo-festival {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #e4ecdf;
+  color: #215b45;
+  font-size: 1.75rem;
+}
+.nombre-festival { font-size: 1.25rem; font-weight: 700; }
+h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; margin: 16px 0; }
+.introduccion { font-size: 1.15rem; }
+
+/* Los espacios y títulos separan las explicaciones en bloques legibles. */
+section { margin-top: 32px; }
+h2 { font-size: 1.35rem; line-height: 1.4; }
+li + li { margin-top: 10px; }
+
+/* Destacamos los nombres de archivos y las etiquetas mencionadas en el texto. */
+code { background: #e7e9de; padding: 2px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+
+/* El ejercicio se diferencia con un fondo suave y un borde lateral. */
+.practica { background: #e4ecdf; border-left: 4px solid #287154; padding: 8px 20px; }
+
+/* El enlace conserva el subrayado y un foco visible para navegar con teclado. */
+a { color: #215b45; text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid #215b45; outline-offset: 4px; }
+/* Centramos el pie y reducimos su tipografía respecto al contenido principal. */
+footer {
+  /* Se mantiene visible abajo incluso cuando desplazamos el contenido. */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--altura-pie);
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background-color: #f5f3eb;
+  border-top: 1px solid #b5c2b4;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Eliminamos el margen del párrafo para centrarlo dentro de la altura del pie. */
+footer p { margin: 0; }
